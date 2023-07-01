@@ -23,7 +23,13 @@ namespace LambadaPracticeProblem
                 Console.WriteLine($"Id: {student.Id}, Name: {student.Name}, Phone Number: {student.PhoneNumber}, Address: {student.Address}, Age: {student.Age}");
             }
 
-
+            //Retrieve all records from the list for age between 12 to 18 
+            var ageFilteredStudents = students.Where(student => student.Age >= 12 && student.Age <= 18);
+            Console.WriteLine("\nStudents between the age of 12 and 18:");
+            foreach (var student in ageFilteredStudents)
+            {
+                Console.WriteLine($"Id: {student.Id}, Name: {student.Name}, Phone Number: {student.PhoneNumber}, Address: {student.Address}, Age: {student.Age}");
+            }
 
             // Sort students data in descending order based on TotalMarks (not mentioned in the Student class)
             // Assuming you want to sort by Age in descending order
