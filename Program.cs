@@ -6,26 +6,33 @@ namespace LambadaPracticeProblem
     {
         public static void Main(string[] args)
         {
-            List<Student> studentList = new List<Student>
-        {
-            new Student { Id = 1, Name = "Divya", PhoneNumber = "845236978", Address = "Lucknow", Age = 25 },
-            new Student { Id = 2, Name = "Shweta", PhoneNumber = "9752235812", Address = "Alhabad", Age = 26 },
-            new Student { Id = 3, Name = "Madhu", PhoneNumber = "9863517478", Address = "Deoria", Age = 28 },
-            new Student { Id = 1, Name = "Priya", PhoneNumber = "845236978", Address = "Lucknow", Age = 18 },
-            new Student { Id = 2, Name = "Shiva", PhoneNumber = "9752235812", Address = "Alhabad", Age = 14 },
-            new Student { Id = 3, Name = "Pari", PhoneNumber = "9863517478", Address = "Deoria", Age = 12}
-        };
 
-            Console.WriteLine("Student Details:");
-            studentList.ForEach(student =>
+            List<Student> students = new List<Student>();
+
+            // Add default values to the list
+            students.Add(new Student { Id = 1, Name = "Priya", PhoneNumber = "7218533707", Address = "Lucknow", Age = 25 });
+            students.Add(new Student { Id = 2, Name = "Pooja", PhoneNumber = "922429072", Address = "Deoria", Age = 23 });
+            students.Add(new Student { Id = 3, Name = "Pari", PhoneNumber = "9856734567", Address = "Aalhabad", Age = 18 });
+            students.Add(new Student { Id = 4, Name = "Shiva", PhoneNumber = "789654231", Address = "mumbai", Age = 14 });
+            students.Add(new Student { Id = 5, Name = "Pihu", PhoneNumber = "9527616356", Address = "Delhi", Age = 16 });
+
+            // Display all student details
+            Console.WriteLine("All Student Details:");
+            foreach (var student in students)
             {
-                Console.WriteLine($"ID: {student.Id}");
-                Console.WriteLine($"Name: {student.Name}");
-                Console.WriteLine($"Phone Number: {student.PhoneNumber}");
-                Console.WriteLine($"Address: {student.Address}");
-                Console.WriteLine($"Age: {student.Age}");
-                Console.WriteLine();
-            });
+                Console.WriteLine($"Id: {student.Id}, Name: {student.Name}, Phone Number: {student.PhoneNumber}, Address: {student.Address}, Age: {student.Age}");
+            }
+
+
+
+            // Sort students data in descending order based on TotalMarks (not mentioned in the Student class)
+            // Assuming you want to sort by Age in descending order
+            var sortedStudents = students.OrderByDescending(student => student.Age);
+            Console.WriteLine("\nStudents sorted by age in descending order:");
+            foreach (var student in sortedStudents)
+            {
+                Console.WriteLine($"Id: {student.Id}, Name: {student.Name}, Phone Number: {student.PhoneNumber}, Address: {student.Address}, Age: {student.Age}");
+            }
         }
     }
 
