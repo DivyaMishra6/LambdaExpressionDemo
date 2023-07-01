@@ -54,6 +54,20 @@ namespace LambadaPracticeProblem
             {
                 Console.WriteLine($"Id: {student.Id}, Name: {student.Name}, Phone Number: {student.PhoneNumber}, Address: {student.Address}, Age: {student.Age}");
             }
+
+
+            // Search for a particular student based on name using lambda expression
+
+            var searchName = "Pari";
+            var searchedStudent = students.FirstOrDefault(student => student.Name.Equals(searchName, StringComparison.OrdinalIgnoreCase));
+            if (searchedStudent != null)
+            {
+                Console.WriteLine($"\nStudent found - Id: {searchedStudent.Id}, Name: {searchedStudent.Name}, Phone Number: {searchedStudent.PhoneNumber}, Address: {searchedStudent.Address}, Age: {searchedStudent.Age}");
+            }
+            else
+            {
+                Console.WriteLine($"\nStudent with name '{searchName}' not found.");
+            }
         }
     }
 
